@@ -1,0 +1,12 @@
+    @Around("execution(public void edu.javacourse.aop.bean.AspectDemoBean.test*(String, ..))")
+    @Before("@annotation(edu.javacourse.aop.aspect.Action) && this(edu.javacourse.aop.bean.AspectDemoBean)")
+    @Before("target(edu.javacourse.aop.bean.AspectDemoBean) && @annotation(edu.javacourse.aop.aspect.Action)")
+    @Before("execution(public void edu.javacourse.aop.bean.AspectDemoBean.*(.., Long))")
+    @Before("within(edu.javacourse.aop.bean.AspectDemoBean)")
+
+    @Before("inWebLayer()")
+
+    @AfterReturning("execution(public * *(..))")
+
+    @Pointcut("within(edu.javacourse.aop.bean.AspectDemoBean)")
+    public void inWebLayer() {}
