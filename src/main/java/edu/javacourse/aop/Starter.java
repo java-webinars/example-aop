@@ -10,7 +10,12 @@ public class Starter
         ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"springExample.xml"});
 
         AspectDemoBean adb = context.getBean(AspectDemoBean.class);
-        adb.methodOne();
-        adb.methodTwo();
+        adb.methodOne("Anton");
+        try {
+//            adb.methodOne("Exception");
+        } catch (Exception ex) {
+            System.out.println("ERROR");
+        }
+//        adb.methodTwo();
     }
 }
